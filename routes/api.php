@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/a', function () {
-    return 'хуй';
-});
+
+
+Route::resource('coffee', 'CoffeeController');
+
+Route::resource('topping', 'ToppingController');
