@@ -55,7 +55,6 @@ Laravel 5.4.*
     Данные json 
     {
       "name": "Sirop4ik",
-
     }
     
 Заказы:    
