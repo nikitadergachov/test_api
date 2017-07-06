@@ -12,4 +12,6 @@ class OrderedCoffeeTopping extends Model
         'ordered_coffee_id',
         'topping_id',
     ];
+
+
 }

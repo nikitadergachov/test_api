@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Coffee;
 use App\Order;
 use App\OrderedCoffee;
 use App\OrderedCoffeeTopping;
@@ -17,40 +18,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $response = [
-            'orders'  => []
-        ];
-        $orders = Order::all();
-        $ordered_coffee = OrderedCoffee::all();
-        $ordered_coffee_toppings = OrderedCoffeeTopping::all();
-        foreach ($orders as $order){
-            $response['orders'] = [
-                'id' => $order->id,
-                'buyer_name' => $order->buyer_name,
-                'toppings' => [
-
-                ]
-
-            ];
-
-
-        }
-
-        return new JsonResponse($ordered_coffee);
+        $orders = Order::with('orderedItems.toppingItems')->get();
+        return new JsonResponse($orders);
 
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -60,7 +32,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::with('orderedItems.toppingItems')->where('id', $id)->get();
+
+        return $order;
     }
 
 

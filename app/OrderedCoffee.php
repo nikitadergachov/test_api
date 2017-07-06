@@ -19,6 +19,7 @@ class OrderedCoffee extends Model
      */
     public function toppingItems()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\OrderedCoffeeTopping');
     }
+
 }
