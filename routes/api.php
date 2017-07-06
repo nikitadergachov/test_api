@@ -18,3 +18,5 @@ use Illuminate\Http\Request;
 Route::resource('coffee', 'CoffeeController');
 
 Route::resource('topping', 'ToppingController');
+
+Route::resource('order', 'OrderController');

@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $table = 'bayer_name';
+    protected $table = 'orders';
 
     protected $fillable = [
-        'name',
+        'bayer_name',
         'value',
     ];
 
